@@ -1,9 +1,9 @@
 import Users from "~/features/core/users/domain/entity/users";
 
 export interface IUserTableVM {
-  users: Users[]
+  users: Users[];
 }
 
 export interface IGetUsersPageProps {
-  vm : IUserTableVM;
+  vm: IUserTableVM;
 }

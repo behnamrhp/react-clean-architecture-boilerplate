@@ -2,7 +2,7 @@
 /public
 /dist
 vite.config.ts
-.eslintrc.cjs
+.eslintrc.js
+/build
 /src/vite-env.d.ts
-tailwind.config.cjs
-postcss.config.cjs
+/src/types/*

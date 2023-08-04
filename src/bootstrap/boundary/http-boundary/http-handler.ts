@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { HttpOptions } from './protocols/http-protocols';
-import { singleton } from 'tsyringe';
+import axios from "axios";
+import { singleton } from "tsyringe";
+import { HttpOptions } from "./protocols/http-protocols";
 
 @singleton()
 export default class HTTPHandler {

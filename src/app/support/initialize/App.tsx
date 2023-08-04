@@ -1,7 +1,7 @@
 import GetUsersPage from "~/app/core/users/page/get-users-page";
 
 function App() {
-	return <GetUsersPage />
+  return <GetUsersPage />;
 }
 
-export default App
+export default App;

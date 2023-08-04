@@ -1,5 +1,5 @@
-import { StoreApi, UseBoundStore } from "zustand";
+import { StoreApi } from "zustand";
 
-type Store<STORE_TYPE> = StoreApi<STORE_TYPE>
+type Store<STORE_TYPE> = StoreApi<STORE_TYPE>;
 
 export default Store;

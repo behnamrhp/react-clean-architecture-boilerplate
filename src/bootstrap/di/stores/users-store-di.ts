@@ -1,8 +1,8 @@
-import { DependencyContainer } from "tsyringe"
-import usersStore from "~/app/core/users/store/users-store"
+import { DependencyContainer } from "tsyringe";
+import usersStore from "~/app/core/users/store/users-store";
 
 const usersStoreDI = (di: DependencyContainer) => {
-  di.register<typeof usersStore>(`${usersStore}`, { useValue: usersStore })
-}
+  di.register<typeof usersStore>(`${usersStore}`, { useValue: usersStore });
+};
 
-export default usersStoreDI
+export default usersStoreDI;
