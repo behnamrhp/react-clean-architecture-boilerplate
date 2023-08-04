@@ -1,0 +1,8 @@
+/node_modules
+/public
+/dist
+vite.config.ts
+.eslintrc.cjs
+/src/vite-env.d.ts
+tailwind.config.cjs
+postcss.config.cjs
