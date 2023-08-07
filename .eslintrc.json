@@ -8,10 +8,21 @@
       "version": "detect"
     },
     "import/resolver": {
-        "alias": {
-            "map": [["~", "./src"]],
-            "extensions": [".js",".ts",".tsx", ".d.ts", ".json"]
-        }
+      "alias": {
+        "map": [
+          [
+            "~",
+            "./src"
+          ]
+        ],
+        "extensions": [
+          ".js",
+          ".ts",
+          ".tsx",
+          ".d.ts",
+          ".json"
+        ]
+      }
     }
   },
   "extends": [
@@ -19,7 +30,8 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "prettier",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:storybook/recommended"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -28,12 +40,15 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react", 
-    "@typescript-eslint", 
+    "react",
+    "@typescript-eslint",
     "prettier"
   ],
   "rules": {
-    "object-curly-spacing": ["error", "always"],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -44,7 +59,12 @@
         "tsx": "never"
       }
     ],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
     "class-methods-use-this": "off",
     "import/no-import-module-exports": "off",
     "react/require-default-props": "off",
@@ -76,7 +96,17 @@
       }
     ],
     "react/button-has-type": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-namespace": "off"
   }
