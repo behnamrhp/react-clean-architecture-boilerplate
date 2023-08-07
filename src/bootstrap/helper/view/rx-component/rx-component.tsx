@@ -69,7 +69,6 @@ export default function RXComponent<DATATYPE>(props: IRXComponent<DATATYPE>) {
       }
     }, [data]);
   };
-
   useLoadingSideEffect();
 
   /* -------------------------------------------------------------------------- */
