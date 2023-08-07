@@ -3,6 +3,7 @@ import { inject, injectable } from "tsyringe";
 import { pipe } from "fp-ts/lib/function";
 import { HttpOptions } from "~/bootstrap/boundary/http-boundary/protocols/http-protocols";
 import HTTPHandler from "~/bootstrap/boundary/http-boundary/http-handler";
+import { delay } from "fp-ts/lib/Task";
 import GetUsersFailure from "../../domain/failure/get-users-failure";
 import { GetUsersInfoDTO } from "../dto/get-users-dto";
 import UsersFailuer from "../../domain/failure/user-failure";
@@ -36,6 +37,7 @@ export default class UsersDatasource implements IUsersDataSource {
     const finalResponse = pipe(
       options,
       getData,
+      delay(3000),
       TE.chain((response) => TE.right(this.toDTO(response))),
     );
     return finalResponse;
