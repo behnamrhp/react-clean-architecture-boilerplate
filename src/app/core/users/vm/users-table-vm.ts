@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import di from "~/bootstrap/di";
 import IBaseVM from "~/bootstrap/helper/vm/i-base-vm";
 import Users from "~/features/core/users/domain/entity/users";
+import toStream from "~/bootstrap/helper/store/store-to-stream";
 import { IUserTableVM } from "../view/i-users-table";
 import GetUsersModel from "../model/get-users-model";
 
@@ -16,11 +17,16 @@ class UsersTableVM implements IBaseVM<IUserTableVM> {
 
   /* -------------------------------------------------------------------------- */
   useVM(): IUserTableVM {
-    const [users, setUsers] = useState<Users[]>([]);
+    const users$ = toStream(this.model.usersStore, (state) => state.users, {
+      fireImmediately: false,
+    });
 
-    this.sideEffect(setUsers);
+    useEffect(() => {
+      this.model.initUsers();
+    }, []);
+
     return {
-      users,
+      users$,
     };
   }
 
