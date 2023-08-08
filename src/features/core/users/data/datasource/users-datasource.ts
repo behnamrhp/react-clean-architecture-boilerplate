@@ -4,6 +4,7 @@ import { pipe } from "fp-ts/lib/function";
 import { HttpOptions } from "~/bootstrap/boundary/http-boundary/protocols/http-protocols";
 import HTTPHandler from "~/bootstrap/boundary/http-boundary/http-handler";
 import { delay } from "fp-ts/lib/Task";
+import UsersEndpoint from "~/bootstrap/endpoint/endpoints/users-endpoint";
 import GetUsersFailure from "../../domain/failure/get-users-failure";
 import { GetUsersInfoDTO } from "../dto/get-users-dto";
 import UsersFailuer from "../../domain/failure/user-failure";
@@ -14,10 +15,13 @@ export default class UsersDatasource implements IUsersDataSource {
   /* ------------------------------ Dependencies ------------------------------ */
   private httpHandler: HTTPHandler;
 
-  private endpoint: string;
+  private endpoint: UsersEndpoint;
 
   /* -------------------------------------------------------------------------- */
-  constructor(@inject(HTTPHandler) httpHandler: HTTPHandler, endpoint: string) {
+  constructor(
+    @inject(HTTPHandler) httpHandler: HTTPHandler,
+    @inject(UsersEndpoint) endpoint: UsersEndpoint,
+  ) {
     this.httpHandler = httpHandler;
     this.endpoint = endpoint;
   }
@@ -25,9 +29,8 @@ export default class UsersDatasource implements IUsersDataSource {
   /* -------------------------------------------------------------------------- */
   getUsers(): TE.TaskEither<UsersFailuer, GetUsersInfoDTO[]> {
     const options: HttpOptions = {
-      url: this.endpoint,
+      url: this.endpoint.usersList,
     };
-
     const getData = (options: HttpOptions) =>
       TE.tryCatch(
         () => this.httpHandler.request<{ users: GetUsersInfoDTO[] }>(options),

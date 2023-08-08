@@ -1,6 +1,6 @@
 const appConfigs = {
-  api: {
-    users: "/_.json",
+  baseApis: {
+    main: ENV.MAIN_URL,
   },
   routes: {
     users: "users",

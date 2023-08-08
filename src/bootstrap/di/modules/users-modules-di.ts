@@ -3,8 +3,8 @@ import UsersRepository from "~/features/core/users/data/repository/users-reposit
 import { IGetUsersRepoKey } from "~/features/core/users/domain/i-repository/i-users-repo";
 import { IUsersDataSourceKey } from "~/features/core/users/data/datasource/i-users-datasource";
 import UsersDatasource from "~/features/core/users/data/datasource/users-datasource";
+import UsersEndpoint from "~/bootstrap/endpoint/endpoints/users-endpoint";
 import HTTPHandler from "../../boundary/http-boundary/http-handler";
-import appConfigs from "../../config/app-configs";
 import IModulesDI from "./i-modules-di";
 
 export default class UsersModulesDI implements IModulesDI {
@@ -24,10 +24,10 @@ export default class UsersModulesDI implements IModulesDI {
   /* -------------------------------------------------------------------------- */
   initDatasources(): void {
     const httpHandler = this.di.resolve(HTTPHandler);
-
+    const usersEndpoints = this.di.resolve(UsersEndpoint);
     this.di.registerInstance<UsersDatasource>(
       IUsersDataSourceKey,
-      new UsersDatasource(httpHandler, appConfigs.api.users),
+      new UsersDatasource(httpHandler, usersEndpoints),
     );
   }
 
