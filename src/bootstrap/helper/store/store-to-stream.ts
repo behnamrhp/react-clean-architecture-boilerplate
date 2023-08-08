@@ -1,6 +1,7 @@
-import { Observable } from 'rxjs';
-import { distinctUntilChanged, map } from 'rxjs/operators';
-import type { StoreApi } from 'zustand/vanilla';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Observable } from "rxjs";
+import { distinctUntilChanged, map } from "rxjs/operators";
+import type { StoreApi } from "zustand/vanilla";
 
 export type StateValueOf<TStore> = TStore extends StoreApi<infer TState>
   ? TState
@@ -12,7 +13,7 @@ export type StateValueOf<TStore> = TStore extends StoreApi<infer TState>
 const toStream = <
   TStore extends StoreApi<any>,
   TState extends object = StateValueOf<TStore>,
-  TSlice = TState
+  TSlice = TState,
 >(
   store: TStore,
   selector?: (value: TState) => TSlice,
@@ -22,7 +23,7 @@ const toStream = <
   }: {
     equalityFn?: (previous: TSlice, current: TSlice) => boolean;
     fireImmediately?: boolean;
-  } = {}
+  } = {},
 ): Observable<TSlice> => {
   const state$ = new Observable<TState>((subscriber) => {
     if (fireImmediately) {
@@ -42,10 +43,9 @@ const toStream = <
           distinctUntilChanged((previous, current) => {
             if (equalityFn) {
               return equalityFn(previous, current);
-            } else {
-              return previous === current;
             }
-          })
+            return previous === current;
+          }),
         )
       : mapped$;
 

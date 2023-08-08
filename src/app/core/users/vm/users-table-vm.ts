@@ -17,7 +17,6 @@ class UsersTableVM implements IBaseVM<IUserTableVM> {
   /* -------------------------------------------------------------------------- */
   useVM(): IUserTableVM {
     const users$ = toStream(this.model.usersStore, (state) => state.users);
-    console.log(users$);
     useEffect(() => {
       this.model.initUsers();
     }, []);

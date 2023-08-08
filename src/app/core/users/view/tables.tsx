@@ -1,5 +1,7 @@
 import { Container } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import { Link } from "react-router-dom";
+import appConfigs from "~/bootstrap/config/app-configs";
 import Users from "~/features/core/users/domain/entity/users";
 
 export default function Tables(props: { data: Users[] }) {
@@ -18,6 +20,7 @@ export default function Tables(props: { data: Users[] }) {
           { field: "email", headerName: "email" },
         ]}
       />
+      <Link to={appConfigs.routes.users}>Users</Link>
     </Container>
   );
 }

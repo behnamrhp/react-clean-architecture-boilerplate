@@ -1,7 +1,10 @@
-import GetUsersPage from "~/app/core/users/page/get-users-page";
+import { RouterProvider } from "react-router-dom";
+import router from "../router/router";
 
 function App() {
-  return <GetUsersPage />;
+  /* ---------------------------------- Build --------------------------------- */
+  return <RouterProvider router={router} />;
+  /* -------------------------------------------------------------------------- */
 }
 
 export default App;
