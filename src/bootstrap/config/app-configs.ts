@@ -3,7 +3,7 @@ const appConfigs = {
     main: ENV.MAIN_URL,
   },
   routes: {
-    users: "users",
+    vehicles: "vehicles",
   },
 } as const;
 

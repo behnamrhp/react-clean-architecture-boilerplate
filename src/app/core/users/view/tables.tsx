@@ -20,7 +20,7 @@ export default function Tables(props: { data: Users[] }) {
           { field: "email", headerName: "email" },
         ]}
       />
-      <Link to={appConfigs.routes.users}>Users</Link>
+      <Link to={appConfigs.routes.vehicles}>Vehicles</Link>
     </Container>
   );
 }

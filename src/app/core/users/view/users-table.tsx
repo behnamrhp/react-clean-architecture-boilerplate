@@ -8,11 +8,14 @@ export default function UsersTable(props: IGetUsersPageProps) {
   const { vm } = props;
 
   return (
-    <RXComponent
-      observable$={vm.users$}
-      NextComponent={Tables}
-      LoadingComponent={CircularProgress}
-      ErrorComponent={() => <div>some error happened</div>}
-    />
+    <>
+      <h1>{vm.title}</h1>
+      <RXComponent
+        observable$={vm.users$}
+        NextComponent={Tables}
+        LoadingComponent={CircularProgress}
+        ErrorComponent={() => <div>some error happened</div>}
+      />
+    </>
   );
 }
