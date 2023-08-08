@@ -1,7 +1,7 @@
 import { GlobalStyles } from "@mui/material";
 import { RouterProvider } from "react-router-dom";
-import globalStyles from "~/bootstrap/helper/view/GlobalStyles";
 import router from "../router/router";
+import globalStyles from "./GlobalStyles";
 
 function App() {
   /* ---------------------------------- Build --------------------------------- */
