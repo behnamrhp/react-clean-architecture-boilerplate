@@ -19,17 +19,19 @@ export default class Endpoint {
 
   /* --------------------------------- Static --------------------------------- */
   static compose(uris: string[]) {
-    return uris.join("/").replaceAll(/(?<!:)\/\//, "/");
+    return Endpoint.sanitizeURL(uris.join("/"));
   }
 
   /* ----------------------------- Implementation ----------------------------- */
   buildEndpoint(endpoint: string) {
-    return `${this.baseURL}/${endpoint}`;
+    return Endpoint.sanitizeURL(
+      `${this.baseURL}/${this.apiVersion}/${endpoint}`,
+    );
   }
 
   /* -------------------------------------------------------------------------- */
-  buildVersionsEndpoint(endpoint: string) {
-    return this.buildEndpoint(`${this.apiVersion}/${endpoint}`);
+  static sanitizeURL(url: string) {
+    return url.replaceAll(/(?<!:)\/\//g, "/");
   }
   /* -------------------------------------------------------------------------- */
 }
