@@ -10,6 +10,7 @@ export default class GetUsersUsecase {
   private repository: IUsersRepo;
 
   constructor(@inject(`${IGetUsersRepoKey}`) repository: IUsersRepo) {
+    console.log("---------------********");
     this.repository = repository;
   }
 
