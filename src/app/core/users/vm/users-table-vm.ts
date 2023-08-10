@@ -12,8 +12,8 @@ class UsersTableVM implements IBaseVM<IUserTableVM> {
   private model: GetUsersModel;
 
   /* -------------------------------------------------------------------------- */
-  constructor(model: GetUsersModel) {
-    this.model = model;
+  constructor() {
+    this.model = di.resolve<GetUsersModel>(GetUsersModel);
   }
 
   /* -------------------------------------------------------------------------- */
@@ -31,13 +31,7 @@ class UsersTableVM implements IBaseVM<IUserTableVM> {
       title,
     };
   }
-
-  /* --------------------------------- Factory -------------------------------- */
-  static produce(): IUserTableVM {
-    const modelDI = di.resolve<GetUsersModel>(GetUsersModel);
-    return new UsersTableVM(modelDI).useVM();
-  }
   /* -------------------------------------------------------------------------- */
 }
 
-export default UsersTableVM.produce;
+export default UsersTableVM;

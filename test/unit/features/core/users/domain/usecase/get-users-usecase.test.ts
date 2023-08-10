@@ -6,7 +6,7 @@ import IUsersRepo, {
 import GetUsersUsecase from "~/features/core/users/domain/usecase/get-users-usecase";
 import * as TE from "fp-ts/lib/TaskEither";
 import * as E from "fp-ts/lib/Either";
-import { MOCKED_USERS_LIST } from "./fakers";
+import { MOCKED_USERS_LIST } from "test/common/factory";
 
 /* -------------------------------------------------------------------------- */
 /*                                   Mocking                                  */
@@ -24,7 +24,6 @@ class mockedRepo implements IUsersRepo {
 /*                                     DI                                     */
 /* -------------------------------------------------------------------------- */
 const di = container;
-di.registerSingleton("GetUsersUsecase", GetUsersUsecase);
 di.registerSingleton(`${IGetUsersRepoKey}`, mockedRepo);
 
 /* -------------------------------------------------------------------------- */
@@ -34,6 +33,7 @@ describe(`${GetUsersUsecase.name}:`, () => {
   describe("Basic:", () => {
     afterEach(() => {
       vi.resetAllMocks();
+      di.dispose();
     });
 
     it("Should return a list of users correctly", async () => {
