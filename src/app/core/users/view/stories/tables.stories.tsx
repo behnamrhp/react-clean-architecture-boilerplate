@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { withRouter } from "storybook-addon-react-router-v6";
 import Users from "~/features/core/users/domain/entity/users";
 import Tables from "../tables";
-
+/* -------------------------------------------------------------------------- */
 const meta: Meta<typeof Tables> = {
   title: "Users/Table",
   argTypes: {
@@ -23,9 +23,8 @@ const meta: Meta<typeof Tables> = {
   decorators: [withRouter],
 };
 export default meta;
-
+/* -------------------------------- Template -------------------------------- */
 type Story = StoryObj<typeof Tables>;
-
 export const Primary: Story = {
   render: (props) => <Tables data={props.data} />,
 };

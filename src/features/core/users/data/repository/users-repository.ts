@@ -9,6 +9,9 @@ import { GetUsersInfoDTO } from "../dto/get-users-dto";
 import Users from "../../domain/entity/users";
 import { IUsersDataSourceKey } from "../datasource/i-users-datasource";
 
+/**
+ * Get Data from Datasource and convert it to Domain Entity.
+ */
 @injectable()
 export default class UsersRepository implements IUsersRepo {
   /* ------------------------------ Dependencies ------------------------------ */

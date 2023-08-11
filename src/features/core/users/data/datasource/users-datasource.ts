@@ -10,6 +10,13 @@ import { GetUsersInfoDTO } from "../dto/get-users-dto";
 import UsersFailuer from "../../domain/failure/user-failure";
 import IUsersDataSource from "./i-users-datasource";
 
+/**
+ * retrieving user information. It is responsible for making HTTP requests to a
+ *  specified endpoint and returning the data in a specific format.
+ *
+ * The class  UsersDatasource  is decorated with  @injectable  to indicate that
+ *  it can be injected as a dependency in other classes.
+ */
 @injectable<UsersDatasource>()
 export default class UsersDatasource implements IUsersDataSource {
   /* ------------------------------ Dependencies ------------------------------ */
