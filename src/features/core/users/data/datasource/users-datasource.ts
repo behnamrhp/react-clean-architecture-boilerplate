@@ -4,7 +4,7 @@ import { pipe } from "fp-ts/lib/function";
 import { HttpOptions } from "~/bootstrap/boundary/http-boundary/protocols/http-protocols";
 import HTTPHandler from "~/bootstrap/boundary/http-boundary/http-handler";
 import { delay } from "fp-ts/lib/Task";
-import UsersEndpoint from "~/bootstrap/endpoint/endpoints/users-endpoint";
+import UsersEndpoint from "~/bootstrap/helper/endpoint/endpoints/users-endpoint";
 import GetUsersFailure from "../../domain/failure/get-users-failure";
 import { GetUsersInfoDTO } from "../dto/get-users-dto";
 import UsersFailuer from "../../domain/failure/user-failure";

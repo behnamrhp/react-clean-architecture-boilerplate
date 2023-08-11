@@ -1,4 +1,4 @@
-import appConfigs from "../config/app-configs";
+import appConfigs from "../../config/app-configs";
 import UsersEndpoint from "./endpoints/users-endpoint";
 
 /**

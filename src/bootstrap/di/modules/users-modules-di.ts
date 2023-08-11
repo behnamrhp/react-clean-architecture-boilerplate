@@ -3,7 +3,7 @@ import UsersRepository from "~/features/core/users/data/repository/users-reposit
 import { IGetUsersRepoKey } from "~/features/core/users/domain/i-repository/i-users-repo";
 import { IUsersDataSourceKey } from "~/features/core/users/data/datasource/i-users-datasource";
 import UsersDatasource from "~/features/core/users/data/datasource/users-datasource";
-import UsersEndpoint from "~/bootstrap/endpoint/endpoints/users-endpoint";
+import UsersEndpoint from "~/bootstrap/helper/endpoint/endpoints/users-endpoint";
 import HTTPHandler from "../../boundary/http-boundary/http-handler";
 import IModulesDI from "./i-modules-di";
 /**
