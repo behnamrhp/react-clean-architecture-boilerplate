@@ -1,5 +1,5 @@
 import usersStore from "~/app/core/users/store/users-store";
-import { MOCKED_USERS_LIST } from "test/common/factory";
+import { MOCKED_USERS_LIST } from "~/test/common/factory";
 
 describe("Users-store:", () => {
   beforeEach(() => {

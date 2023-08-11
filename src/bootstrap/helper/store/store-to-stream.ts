@@ -19,7 +19,7 @@ const toStream = <
   selector?: (value: TState) => TSlice,
   {
     equalityFn,
-    fireImmediately,
+    fireImmediately = true,
   }: {
     equalityFn?: (previous: TSlice, current: TSlice) => boolean;
     fireImmediately?: boolean;

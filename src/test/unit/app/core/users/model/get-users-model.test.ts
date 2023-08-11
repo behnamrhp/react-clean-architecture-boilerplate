@@ -3,7 +3,7 @@ import usersStore from "~/app/core/users/store/users-store";
 import GetUsersUsecase from "~/features/core/users/domain/usecase/get-users-usecase";
 import * as TE from "fp-ts/lib/TaskEither";
 import di from "~/bootstrap/di";
-import { MOCKED_USERS_LIST } from "test/common/factory";
+import { MOCKED_USERS_LIST } from "~/test/common/factory";
 
 /* -------------------------------------------------------------------------- */
 /*                                   Mocking                                  */

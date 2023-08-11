@@ -13,10 +13,6 @@
           [
             "~",
             "./src"
-          ],
-          [
-            "test",
-            "./test"
           ]
         ],
         "extensions": [

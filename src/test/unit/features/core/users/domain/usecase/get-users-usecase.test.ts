@@ -6,7 +6,7 @@ import IUsersRepo, {
 import GetUsersUsecase from "~/features/core/users/domain/usecase/get-users-usecase";
 import * as TE from "fp-ts/lib/TaskEither";
 import * as E from "fp-ts/lib/Either";
-import { MOCKED_USERS_LIST } from "test/common/factory";
+import { MOCKED_USERS_LIST } from "~/test/common/factory";
 
 /* -------------------------------------------------------------------------- */
 /*                                   Mocking                                  */
