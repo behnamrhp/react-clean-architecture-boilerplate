@@ -14,7 +14,17 @@ interface IRXComponent<T> {
 }
 
 /**
- * It Handles Components to show based on rxjs observable object
+ * Handles rendering different components based on the state of
+ *  an observable stream.
+ *
+ * Props:
+ * - LoadingComponent: Component to render when the observable is loading.
+ * - NextComponent: Component to render when the observable emits a new value.
+ * - observable$: The observable stream.
+ * - ErrorComponent: Component to render when there is an error with the observable.
+ * - CompleteComponent: Component to render when the observable completes.
+ * - loadingPattern: Function to determine if the observable is still loading.
+ * - errorPattern: Function to determine if there is an error with the observable.
  */
 export default function RXComponent<DATATYPE>(props: IRXComponent<DATATYPE>) {
   const {
@@ -47,6 +57,10 @@ export default function RXComponent<DATATYPE>(props: IRXComponent<DATATYPE>) {
     },
   });
   /* ------------------------------- SideEffect ------------------------------- */
+  /**
+   * Checks if there is an error based on the errorPattern and updates the
+   *  currentWidget accordingly.
+   */
   const useErrorSideEffect = () => {
     useEffect(() => {
       if (!errorPattern) return;
@@ -59,6 +73,10 @@ export default function RXComponent<DATATYPE>(props: IRXComponent<DATATYPE>) {
   };
   useErrorSideEffect();
   /* -------------------------------------------------------------------------- */
+  /**
+   * Checks if the observable is still loading based on the loadingPattern and
+   *  updates the currentWidget accordingly.
+   */
   const useLoadingSideEffect = () => {
     useEffect(() => {
       if (!loadingPattern || !LoadingComponent) return;

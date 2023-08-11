@@ -4,12 +4,19 @@ import { pipe } from "fp-ts/lib/function";
 import { HttpOptions } from "~/bootstrap/boundary/http-boundary/protocols/http-protocols";
 import HTTPHandler from "~/bootstrap/boundary/http-boundary/http-handler";
 import { delay } from "fp-ts/lib/Task";
-import UsersEndpoint from "~/bootstrap/endpoint/endpoints/users-endpoint";
+import UsersEndpoint from "~/bootstrap/helper/endpoint/endpoints/users-endpoint";
 import GetUsersFailure from "../../domain/failure/get-users-failure";
 import { GetUsersInfoDTO } from "../dto/get-users-dto";
 import UsersFailuer from "../../domain/failure/user-failure";
 import IUsersDataSource from "./i-users-datasource";
 
+/**
+ * retrieving user information. It is responsible for making HTTP requests to a
+ *  specified endpoint and returning the data in a specific format.
+ *
+ * The class  UsersDatasource  is decorated with  @injectable  to indicate that
+ *  it can be injected as a dependency in other classes.
+ */
 @injectable<UsersDatasource>()
 export default class UsersDatasource implements IUsersDataSource {
   /* ------------------------------ Dependencies ------------------------------ */
