@@ -1,6 +1,6 @@
 const appConfigs = {
   baseApis: {
-    main: ENV.MAIN_URL,
+    main: typeof ENV !== "undefined" ? ENV.MAIN_URL : null,
   },
   routes: {
     vehicles: "vehicles",
