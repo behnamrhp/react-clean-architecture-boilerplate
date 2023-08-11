@@ -1,8 +1,6 @@
-/* eslint-disable no-console */
 import { inject, singleton } from "tsyringe";
 import { pipe } from "fp-ts/lib/function";
 import * as TE from "fp-ts/lib/TaskEither";
-import di from "~/bootstrap/di";
 import GetUsersUsecase from "~/features/core/users/domain/usecase/get-users-usecase";
 import Users from "~/features/core/users/domain/entity/users";
 import type Store from "~/bootstrap/helper/store/store-type";
@@ -29,13 +27,6 @@ export default class GetUsersModel {
   ) {
     this.usersStore = usersStore;
     this.getUsersUsecase = getUsersUsecase;
-  }
-
-  /* -------------------------------------------------------------------------- */
-  static produce() {
-    const store = di.resolve<typeof usersStore>(`${usersStore}`);
-    const usecase = di.resolve<GetUsersUsecase>(GetUsersUsecase);
-    return new GetUsersModel(store, usecase);
   }
 
   /* -------------------------------------------------------------------------- */

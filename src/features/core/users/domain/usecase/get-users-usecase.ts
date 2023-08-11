@@ -1,4 +1,4 @@
-import { inject, singleton } from "tsyringe";
+import { inject, injectable, singleton } from "tsyringe";
 import { TaskEither } from "fp-ts/lib/TaskEither";
 import type IUsersRepo from "../i-repository/i-users-repo";
 import { IGetUsersRepoKey } from "../i-repository/i-users-repo";
