@@ -14,6 +14,7 @@ export default function UsersTable(props: IGetUsersPageProps) {
         observable$={vm.users$}
         NextComponent={Tables}
         LoadingComponent={CircularProgress}
+        loadingPattern={(data) => !data?.length}
         ErrorComponent={() => <div>some error happened</div>}
       />
     </>
